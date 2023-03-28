@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" href="https://i.imgur.com/U7gAPym.png" type="image/png">
+<head>
+    <style>
+        #ball1 {
+            position: fixed;
+            z-index: -1;
+            width: 600px;
+            height: 600px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            animation: ball1 40s infinite ease-in-out alternate;
+            box-shadow: 0px 0px 50px 20px rgba(0, 255, 0, 0.5);
+            mix-blend-mode: normal;
+        }
+
+        #ball2 {
+            position: fixed;
+            z-index: -1;
+            width: 800px;
+            height: 800px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            animation: ball2 60s infinite ease-in-out alternate-reverse;
+            box-shadow: 0px 0px 100px 50px rgba(0, 255, 0, 0.5);
+            mix-blend-mode: normal;
+        }
+
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes ball1 {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                left: 50%;
+                top: 0px;
+            }
+            50% {
+                left: 50%;
+                top: 50%;
+            }
+            75% {
+                left: 0px;
+                top: 50%;
+            }
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        @keyframes ball2 {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                left: -50%;
+                top: 0px;
+            }
+            50% {
+                left: -50%;
+                top: -50%;
+            }
+            75% {
+                left: 0px;
+                top: -50%;
+            }
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ball1"></div>
+    <div id="ball2"></div>
+    <div id="content">
+    </div>
+</body>
+
+
+</head>
+
+<body>
+    <div id="ball1"></div>
+    <div id="ball2"></div>
+
+    </div>
+</body>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.7/standalone.js"></script>
+<script>
+    // Function to animate the title text
+    function animateTitle() {
+      var titles = ["All in one Installer", "Velocitify Installer"];
+      var index = 0;
+      var titleIndex = 0;
+      var direction = 1;
+      var delay = 125;
+      var showCursor = true;
+
+      function updateTitle() {
+        var title = titles[index];
+        var newTitle = title.substring(0, titleIndex);
+
+        if (newTitle === '') {
+          newTitle = '\u3164'; // Empty character
+        }
+
+        if (showCursor) {
+          newTitle += "|";
+        }
+
+        document.title = newTitle;
+        showCursor = !showCursor;
+
+        if (direction === 1) {
+          titleIndex++;
+          if (titleIndex > title.length) {
+            direction = -1;
+            delay = 250;
+          }
+        } else {
+          titleIndex--;
+          if (titleIndex < 0) {
+            direction = 1;
+            delay = 250;
+            index++;
+            if (index >= titles.length) {
+              index = 0;
+            }
+          }
+        }
+        setTimeout(updateTitle, delay);
+      }
+
+      // Start the animation
+      updateTitle();
+    }
+    // Call the animation function when the page is loaded
+    window.onload = animateTitle;
+  </script>
+</head>
+
+<body>
+  <!-- Your HTML content here -->
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>All in One / Velocitify Installer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    body {
+      background-color: #f2f2f2;
+      color: #171717;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      max-width: 30rem;
+    }
+
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: #fff;
+      padding: 1.2rem 2.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    [data-theme="light"] {
+      background-color: #f2f2f2;
+      color: #171717;
+    }
+
+    [data-theme="dark"] {
+      background-color: #1f1f1f;
+      color: #e6e6e6;
+    }
+
+    body {
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    #theme-toggle {
+      transition: color 0.3s ease-in-out;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+    }
+
+    #theme-toggle:hover {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+
+<body data-theme="light">
+  <button id="theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+  </button>
+  <div class="container">
+    <h1>All in One / Velocitify Installer</h1>
+    <p>This is the all in one Velocitify installer. With this installer, you can quickly and easily install all the
+      necessary components to get Velocitify up and running on your system.</p>
+    
+  <button onclick="redirect()">Download Installer</button>
+
+
+<script type="text/javascript">
+function redirect() {
+  var isWindows = navigator.platform.indexOf('Win') > -1;
+  if (isWindows) {
+    window.location.href = "https://github.com/Bazixv13/Vinstaller/releases/tag/0.5";
+  } else {
+    alert("The program is currently only available for Windows. Thank you for taking the time to consider it!");
+  }
+}
+</script>
+    </a>
+  </div>
+  <script>
+    function toggleTheme() {
+      const body = document.querySelector('body');
+      const themeToggle = document.querySelector('#theme-toggle');
+
+      if (body.getAttribute('data-theme') === 'dark') {
+        setLightTheme();
+      } else {
+        setDarkTheme();
+      }
+    }
+
+    function setDarkTheme() {
+      const body = document.querySelector('body');
+      const themeToggle = document.querySelector('#theme-toggle');
+
+      body.setAttribute('data-theme', 'dark');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      body.style.color = '#fff';
+    }
+
+    function setLightTheme() {
+      const body = document.querySelector('body');
+      const themeToggle = document.querySelector('#theme-toggle');
+
+      body.setAttribute('data-theme', 'light');
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      body.style.color = '#171717';
+    }
+
+    // Check if user prefers a dark color scheme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (prefersDark) {
+      setDarkTheme();
+    } else {
+      setLightTheme();
+    }
+  </script>
